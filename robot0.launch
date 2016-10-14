@@ -1,6 +1,19 @@
 <launch>
+  <!--
+  there must be some better way to just remap everything
+  to under /robotZero/ ....
+  -->
+
+  <remap from="sonar_0" to="robotZero/sonar_0"/>
+  <remap from="sonar_1" to="robotZero/sonar_1"/>
+  <remap from="sonar_2" to="robotZero/sonar_2"/>
   <node name="hc_sr04" pkg="hc_sr04" type="hc_sr04_node"/>
+
+  <remap from="cmd" to="robotZero/hat_cmd"/>
   <node name="motor_hat" pkg="motor_hat" type="motor_hat_node"/>
-  <node name="mpu6050" pkg="mpu6050" type="mpu6050_node"/>  
+
+  <remap from="imu" to="imu/data_raw"/>
+  <node name="mpu6050" pkg="mpu6050" type="mpu6050_node"/>
+
 </launch>
   
